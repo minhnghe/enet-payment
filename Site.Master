@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body  style="min-height: 100vh;background: linear-gradient(21.19deg, rgba(241, 236, 221, 0.43) 26.7%, rgba(233, 229, 219, 0.24) 88.38%);">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>

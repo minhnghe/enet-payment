@@ -18,17 +18,18 @@ namespace WebApplication1
         {
             if (!Page.IsPostBack)
             {
-                if (string.IsNullOrEmpty(Convert.ToString(Session["Amount"])))
+                if (string.IsNullOrEmpty(Convert.ToString(Request.QueryString["amount"])))
                 {
                     return;
                 }
                 ENETSDOMAIN = ConfigurationManager.AppSettings[Constants.AppSettingKeys.ENETS_Domain];
+                decimal amount = Convert.ToDecimal(Request.QueryString["amount"]);
                 Enets trans = new Enets
                 {
                     UMID = ConfigurationManager.AppSettings[Constants.AppSettingKeys.ENETS_UMID],
                     SecretKey = ConfigurationManager.AppSettings[Constants.AppSettingKeys.ENETS_Secret],
                     KeyID = ConfigurationManager.AppSettings[Constants.AppSettingKeys.ENETS_KeyID],
-                    Amount = Convert.ToDecimal(Session["Amount"]),
+                    Amount = amount,
                     MerchantReference = DateTime.Now.ToString("yyyyMMddhhmmssFFF")
                 };
 
